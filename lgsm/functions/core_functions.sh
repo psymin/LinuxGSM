@@ -254,6 +254,11 @@ fn_fetch_function
 
 # Dev
 
+command_dev_check_players.sh(){
+functionfile="${FUNCNAME}"
+fn_fetch_function
+}
+
 command_dev_clear_functions.sh(){
 functionfile="${FUNCNAME}"
 fn_fetch_function
