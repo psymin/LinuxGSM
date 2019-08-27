@@ -46,7 +46,7 @@ if [ "$(command -v gamedig 2>/dev/null)" ]&&[ "$(command -v jq 2>/dev/null)" ]; 
 			fi
 		done
 
-		local engine_query_array=( idtech3 iw3.0 ioquake3 qfusion )
+		local engine_query_array=( idtech3 iw3.0 ioquake3 )
 		for engine_query in "${engine_query_array[@]}"
 		do
 			if [ "${engine_query}" == "${engine}" ]; then
@@ -78,6 +78,15 @@ if [ "$(command -v gamedig 2>/dev/null)" ]&&[ "$(command -v jq 2>/dev/null)" ]; 
 			fi
 		done
 
+		local engine_query_array=( qfusion )
+                for engine_query in "${engine_query_array[@]}"
+                do
+                        if [ "${engine_query}" == "${engine}" ]; then
+                                gamedigengine="protocol-quake3"
+				gdmaxplayers_jq=".maxplayers"
+                        fi
+                done
+
 	# will bypass query if server offline.
 	check_status.sh
 	if [ "${status}" != "0" ]; then
@@ -107,7 +116,10 @@ if [ "$(command -v gamedig 2>/dev/null)" ]&&[ "$(command -v jq 2>/dev/null)" ]; 
 		fi
 
 		# maxplayers.
-		gdmaxplayers=$(echo "${gamedigraw}" | jq -re '.maxplayers|length')
+		if [ ! ${gdmaxplayers_jq} ]; then
+			gdmaxplayers_jq=".maxplayers|length"
+		fi
+		gdmaxplayers=$(echo "${gamedigraw}" | jq -re "${gdmaxplayers_jq}")
 		if [ "${gdmaxplayers}" == "null" ]; then
 			unset maxplayers
 		fi
