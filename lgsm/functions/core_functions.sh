@@ -526,6 +526,11 @@ functionfile="${FUNCNAME}"
 fn_fetch_function
 }
 
+command_safe_update.sh(){
+functionfile="${FUNCNAME}"
+fn_fetch_function
+}
+
 update_ts3.sh(){
 functionfile="${FUNCNAME}"
 fn_fetch_function
