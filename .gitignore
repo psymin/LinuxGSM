@@ -1,2 +1,17 @@
 *.db
 .idea
+*.log
+.dev-debug
+*.lock
+lgsm/tmp/*
+log/
+steamcmd/
+lgsm/config-default/config-lgsm/instance-template.cfg
+linuxgsm.sh
+linuxgsm-psymin.sh
+serverfiles
+wfserver
+wfserver-2
+wfserver-3
+wfserver-4
+configs
