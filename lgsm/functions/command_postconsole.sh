@@ -67,7 +67,7 @@ elif [ "${posttarget}" == "https://hastebin.com" ] ; then
 elif [ "${posttarget}" == "https://termbin.com" ] ; then
 	fn_print_dots "Posting console log to termbin.com"
 	# the sed is to remove ANSI colors
-	link=$(cat "${postconsolelog}" | sed 's/\x1b\[[0-9;]*m//g' | nc termbin.com 9999 | tr -d '\n\0')
+	link=$(cat "${postconsolelog}" | sed 's/\x1b\[[0-9;]*m//g' | sed 's/[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}/\[IP removed\]/g' | nc termbin.com 9999 | tr -d '\n\0')
 	fn_print_ok_nl "Posting console log to termbin.com"
 	pdurl="${link}"
 	echo "  Please share the following url for support: ${pdurl}"
