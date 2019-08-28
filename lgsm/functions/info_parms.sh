@@ -200,10 +200,18 @@ fn_info_parms_unturned(){
 	port=${port:-"0"}
 	queryport=$((port + 1))
 }
+
 fn_info_parms_kf2(){
 	queryport=${queryport:-"0"}
 	defaultmap=${defaultmap:-"NOT SET"}
 }
+
+fn_info_parms_qfusion(){
+	port=${port:-"0"}
+	queryport=${queryport:-"0"}
+	httpport=${httpport:-"0"}
+}
+
 
 # ARK: Survival Evolved
 if [ "${shortname}" == "ark" ]; then
@@ -270,4 +278,6 @@ elif [ "${engine}" == "unreal3" ]; then
 	fn_info_parms_unreal3
 elif [ "${shortname}" == "unt" ]; then
 	fn_info_parms_unturned
+elif [ "${engine}" == "qfusion" ]; then
+        fn_info_parms_qfusion
 fi
