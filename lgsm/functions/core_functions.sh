@@ -81,6 +81,16 @@ functionfile="${FUNCNAME}"
 fn_fetch_function
 }
 
+command_postconsole.sh(){
+functionfile="${FUNCNAME}"
+fn_fetch_function
+}
+
+command_postconsole.sh(){
+functionfile="${FUNCNAME}"
+fn_fetch_function
+}
+
 command_test_alert.sh(){
 functionfile="${FUNCNAME}"
 fn_fetch_function
@@ -253,6 +263,11 @@ fn_fetch_function
 }
 
 # Dev
+
+command_dev_check_players.sh(){
+functionfile="${FUNCNAME}"
+fn_fetch_function
+}
 
 command_dev_clear_functions.sh(){
 functionfile="${FUNCNAME}"
@@ -522,6 +537,11 @@ fn_fetch_function
 }
 
 command_update.sh(){
+functionfile="${FUNCNAME}"
+fn_fetch_function
+}
+
+command_safe_update.sh(){
 functionfile="${FUNCNAME}"
 fn_fetch_function
 }

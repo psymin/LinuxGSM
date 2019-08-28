@@ -16,6 +16,7 @@ cmd_stop=( "sp;stop" "command_stop.sh" "Stop the server." )
 cmd_restart=( "r;restart" "command_restart.sh" "Restart the server." )
 cmd_details=( "dt;details" "command_details.sh" "Display server information." )
 cmd_postdetails=( "pd;postdetails" "command_postdetails.sh" "Post details to hastebin (removing passwords)." )
+cmd_postconsole=( "pc;postconsole" "command_postconsole.sh" "Post console log to hastebin." )
 cmd_backup=( "b;backup" "command_backup.sh" "Create backup archives of the server." )
 cmd_update_linuxgsm=( "ul;update-lgsm;uf;update-functions" "command_update_linuxgsm.sh" "Check and apply any LinuxGSM updates." )
 cmd_test_alert=( "ta;test-alert" "command_test_alert.sh" "Send a test alert." )
@@ -117,6 +118,11 @@ fi
 # MTA exclusive.
 if [ "${shortname}" == "mta" ]; then
 	currentopt+=( "${cmd_install_default_resources[@]}" )
+fi
+
+# Warfork exclusive
+if [ "${shortname}" == "wf" ]; then
+        currentopt+=( "${cmd_postconsole[@]}" )
 fi
 
 # Squad license exclusive.
