@@ -81,6 +81,11 @@ functionfile="${FUNCNAME}"
 fn_fetch_function
 }
 
+command_postconsole.sh(){
+functionfile="${FUNCNAME}"
+fn_fetch_function
+}
+
 command_test_alert.sh(){
 functionfile="${FUNCNAME}"
 fn_fetch_function
