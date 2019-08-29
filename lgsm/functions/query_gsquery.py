@@ -104,7 +104,7 @@ if __name__ == '__main__':
         action='store',
         dest='engine',
         default=False,
-        help='Engine type: avalanche2.0 avalanche3.0 goldsource idtech2 idtech3 ioquake3 iw2.0 iw3.0 madness quake quakelive realvirtuality refracto source spark starbound unity3d unreal unreal2 unreal4 wurm.'
+        help='Engine type: avalanche2.0 avalanche3.0 goldsource idtech2 idtech3 ioquake3 iw2.0 iw3.0 madness qfusion quake quakelive realvirtuality refracto source spark starbound unity3d unreal unreal2 unreal4 wurm.'
     )
     parser.add_option(
         '-v', '--verbose',
