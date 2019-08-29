@@ -162,9 +162,9 @@ fn_info_message_gameserver(){
 			fi
 		fi
 
-		# Steam connect URL
+		# Steam launcher URL
 		if [ "${servicename}" == "wfserver" ]; then
-			echo -e "${blue}Steam connect URL:\t${default}steam://connect/${extip}:${port}"
+			echo -e "${blue}Steam launcher URL:\t${default}steam://connect/${extip}:${port}"
 		fi 
 
 		# Display ip
