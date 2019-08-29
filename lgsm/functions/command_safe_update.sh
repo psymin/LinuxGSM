@@ -9,14 +9,15 @@ local commandaction="Update"
 local function_selfname="$(basename "$(readlink -f "${BASH_SOURCE[0]}")")"
 
 check.sh
-#logs.sh
-#info_config.sh
-#info_parms.sh
 check_ip.sh
 
 
-#querymethod="gsquery"
-querymethod="gamedig"
+# both methods work with wfserver
+# set here for verifying and testing
+# preferring gsquery for reduced deps
+
+querymethod="gsquery"
+#querymethod="gamedig"
 
 check_status.sh
 if [ "${status}" != "0" ]; then
@@ -28,9 +29,8 @@ if [ "${status}" != "0" ]; then
                 if [ ! -f "${functionsdir}/query_gsquery.py" ]; then
                         fn_fetch_file_github "lgsm/functions" "query_gsquery.py" "${functionsdir}" "chmodx" "norun" "noforce" "nomd5"
                 fi
-                clients=$(${functionsdir}/query_gsquery.py -a "${ip}" -p "${queryport}" -e "${engine}" | sed -e s/^.*clients..// | sed -e s/.\n.*// )
-#> /dev/null 2>&1)
-		players=${clients}
+                clients=$(${functionsdir}/query_gsquery.py -a "${ip}" -p "${queryport}" -e "${engine}" | sed -e s/^.*clients..// | sed -e s/.\n.*//)
+		players="${clients}"
                 querystatus="$?"
 	fi
 
