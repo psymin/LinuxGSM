@@ -11,7 +11,7 @@ local function_selfname="$(basename "$(readlink -f "${BASH_SOURCE[0]}")")"
 # Standard commands.
 cmd_install=( "i;install" "command_install.sh" "Install the server." )
 cmd_auto_install=( "ai;auto-install" "fn_autoinstall" "Install the server without prompts." )
-cmd_safe_update=( "ss;safe-update" "command_safe_update.sh" "Update the server if players=0." )
+cmd_safe_update=( "su;safe-update" "command_safe_update.sh" "Update the server if players=0." )
 cmd_start=( "st;start" "command_start.sh" "Start the server." )
 cmd_stop=( "sp;stop" "command_stop.sh" "Stop the server." )
 cmd_restart=( "r;restart" "command_restart.sh" "Restart the server." )
