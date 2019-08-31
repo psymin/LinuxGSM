@@ -15,9 +15,10 @@ check_ip.sh
 # both methods work with wfserver
 # set here for verifying and testing
 # preferring gsquery for reduced deps
+# edit: changing to gamedig only for merging to warfork-stable
 
-querymethod="gsquery"
-#querymethod="gamedig"
+#querymethod="gsquery"
+querymethod="gamedig"
 
 check_status.sh
 if [ "${status}" != "0" ]; then
@@ -25,13 +26,6 @@ if [ "${status}" != "0" ]; then
         if [ "${querymethod}" ==  "gamedig" ]; then
                 query_gamedig.sh
 		players=${gdplayers}
-        elif [ "${querymethod}" ==  "gsquery" ]; then
-                if [ ! -f "${functionsdir}/query_gsquery.py" ]; then
-                        fn_fetch_file_github "lgsm/functions" "query_gsquery.py" "${functionsdir}" "chmodx" "norun" "noforce" "nomd5"
-                fi
-                clients=$(${functionsdir}/query_gsquery.py -a "${ip}" -p "${queryport}" -e "${engine}" | sed -e s/^.*clients..// | sed -e s/.\n.*//)
-		players="${clients}"
-                querystatus="$?"
 	fi
 
 	if [ "${players}" == "0" ]; then
@@ -44,6 +38,8 @@ if [ "${status}" != "0" ]; then
 	fi
 else
 	echo "Server failed status check."
+	echo "Doing regular update."
+	command_update.sh
 fi
 
 core_exit.sh
